@@ -1,0 +1,29 @@
+mybatis-plus:
+    configuration:
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+        mapper-locations: classpath:mapper/*.xml
+spring:
+    datasource:
+        type: com.zaxxer.hikari.HikariDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/atguigudb?characterEncoding=utf-8&useSSL=false
+        username: root
+        password: 123456
+    application:
+        name: Shiro
+server:
+    port: 8087
+jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+shiro:
+    loginUrl: /myController/login
+
+log4j:
+    appender:
+        ServerDailyRollingFile: org.apache.log4j.DailyRollingFileAppender
+        ServerDailyRollingFile.Append: true
+        stdout: org.apache.log4j.ConsoleAppender
+        stdout.layout: org.apache.log4j.PatternLayout
+        stdout.layout.ConversionPattern: '%d{yyyy-MM-dd HH:mm:ss} %p [%c] %m%n'
+    rootLogger: info, ServerDailyRollingFile, stdout
